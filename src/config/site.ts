@@ -21,10 +21,6 @@ export const siteConfig = {
     whatsappNumber: "59899419210",
     phoneTel: "+59899419210",
     email: "shmartinez66@hotmail.com",
-    address: "Juan Paullier 1117, Montevideo, Uruguay",
-    addressShort: "Juan Paullier 1117, Montevideo",
-    mapLink: "https://www.google.com/maps/search/?api=1&query=Juan+Paullier+1117+Montevideo+Uruguay",
-    mapEmbed: "https://maps.google.com/maps?q=Juan+Paullier+1117+Montevideo+Uruguay&z=15&output=embed",
     /** Horarios no confirmados: dejar null hasta tener el dato real. */
     hours: null as string | null,
     instagram: "https://instagram.com/martinezseguros",

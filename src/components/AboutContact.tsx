@@ -1,6 +1,6 @@
 "use client";
 
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, Phone } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { trackEvent } from "@/lib/analytics";
 import { waLink, WA_GENERIC } from "@/lib/whatsapp";
@@ -13,23 +13,22 @@ export function Contact() {
     { Icon: Phone, label: "Teléfono", value: c.phoneDisplay, href: `tel:${c.phoneTel}` },
     { Icon: Mail, label: "Correo", value: c.email, href: `mailto:${c.email}` },
     { Icon: InstagramIcon, label: "Instagram", value: c.instagramHandle, href: c.instagram },
-    { Icon: MapPin, label: "Dirección", value: c.address, href: c.mapLink },
   ];
   return (
     <section id="contacto" className="bg-mist py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionHeading eyebrow="Contacto" title="Hablemos de tu seguro" intro="Elegí el medio que te quede más cómodo. Te respondemos a la brevedad." />
-        <div className="grid gap-8 lg:grid-cols-2">
-          <Reveal className="space-y-3">
-            <a
-              href={waLink(WA_GENERIC)}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackEvent("whatsapp_click", { origen: "contacto" })}
-              className="btn btn-wa w-full text-base"
-            >
-              <WhatsAppIcon className="h-5 w-5" /> Escribinos por WhatsApp
-            </a>
+      <div className="mx-auto max-w-3xl px-4 sm:px-6">
+        <SectionHeading eyebrow="Contacto" title="Hablemos de tu seguro" intro="Atendemos consultas de todo Uruguay. Elegí el medio que te quede más cómodo y te respondemos a la brevedad." />
+        <Reveal className="space-y-3">
+          <a
+            href={waLink(WA_GENERIC)}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackEvent("whatsapp_click", { origen: "contacto" })}
+            className="btn btn-wa w-full text-base"
+          >
+            <WhatsAppIcon className="h-5 w-5" /> Escribinos por WhatsApp
+          </a>
+          <div className="grid gap-3 sm:grid-cols-2">
             {items.map(({ Icon, label, value, href }) => (
               <a
                 key={label}
@@ -56,18 +55,8 @@ export function Contact() {
                 <span className="block font-semibold text-navy-900">{c.hours ?? "Consultanos por WhatsApp"}</span>
               </span>
             </div>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <iframe
-              title="Mapa de la ubicación de Martínez Seguros"
-              src={c.mapEmbed}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="h-80 w-full rounded-3xl border border-slate-200 bg-white lg:h-full lg:min-h-[28rem]"
-            />
-            <p className="mt-2 text-xs text-slate-soft">Dirección pendiente de validación.</p>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

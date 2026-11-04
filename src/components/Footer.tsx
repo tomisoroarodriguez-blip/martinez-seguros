@@ -59,8 +59,7 @@ export function Footer() {
         </div>
       </div>
       <div className="mx-auto mt-10 max-w-6xl border-t border-white/10 px-4 pt-6 text-xs text-white/55 sm:px-6">
-        © {new Date().getFullYear()} {siteConfig.name} · {c.addressShort}
-      </div>
+        © {new Date().getFullYear()} {siteConfig.name}      </div>
     </footer>
   );
 }
