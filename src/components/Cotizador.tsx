@@ -30,13 +30,13 @@ const specificFields: Partial<Record<InsuranceId, FieldDef[]>> = {
   auto: vehicleFields,
   moto: vehicleFields,
   hogar: [
-    { name: "localidad", label: "Localidad", placeholder: "Ej: Montevideo", required: true },
+    { name: "localidad", label: "Localidad o departamento", placeholder: "Ej: Canelones", required: true },
     { name: "propiedad", label: "Tipo de propiedad", type: "select", options: PROPIEDAD, required: true },
     { name: "cobertura", label: "Cobertura requerida", type: "select", options: COBERTURA_HOGAR, required: true },
   ],
   empresa: [
     { name: "rubro", label: "Rubro", placeholder: "Ej: Comercio minorista", required: true },
-    { name: "localidad", label: "Localidad", placeholder: "Ej: Montevideo", required: true },
+    { name: "localidad", label: "Localidad o departamento", placeholder: "Ej: Salto", required: true },
     { name: "proteccion", label: "Protección requerida", type: "select", options: PROTECCION, required: true },
   ],
 };

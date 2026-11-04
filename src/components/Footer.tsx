@@ -18,7 +18,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Logo tone="light" tagline className="h-16 w-auto" />
-          <p className="mt-4 max-w-xs leading-relaxed">Corredores de seguros en Montevideo. Tu tranquilidad, nuestra prioridad.</p>
+          <p className="mt-4 max-w-xs leading-relaxed">Corredores de seguros para todo Uruguay. Tu tranquilidad, nuestra prioridad.</p>
         </div>
         <nav aria-label="Secciones">
           <p className="mb-2 font-semibold text-white">Secciones</p>

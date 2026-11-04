@@ -26,7 +26,7 @@ export function Hero({ photo }: { photo?: string }) {
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
         <div>
           <p style={d(0)} className="rise mb-6 inline-flex items-center gap-2.5 text-sm font-semibold uppercase tracking-[0.16em] text-accent-400">
-            <Dots /> Corredores de seguros · Montevideo
+            <Dots /> Corredores de seguros · Todo Uruguay
           </p>
           <h1 style={d(0.08)} className="rise font-display text-[2.6rem] font-extrabold leading-[1.04] tracking-tight sm:text-6xl lg:text-[4.25rem]">
             Protegemos lo que <span className="text-accent-400">más importa.</span>

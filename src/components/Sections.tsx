@@ -62,9 +62,9 @@ export function Nosotros() {
         <Reveal className="lg:sticky lg:top-28 lg:self-start">
           <Dots className="mb-4" />
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-navy-700">Nosotros</p>
-          <h2 className="font-display text-[1.9rem] font-extrabold leading-[1.12] tracking-tight text-navy-900 sm:text-4xl">Tu corredor de seguros en Montevideo</h2>
+          <h2 className="font-display text-[1.9rem] font-extrabold leading-[1.12] tracking-tight text-navy-900 sm:text-4xl">Tu corredor de seguros en todo Uruguay</h2>
           <div className="mt-5 space-y-4 text-[1.05rem] leading-relaxed text-slate-soft">
-            <p>Martínez Seguros es una corredoría de seguros que trabaja con distintas compañías aseguradoras para ayudarte a encontrar la cobertura que necesitás, con cotización sin costo y respuesta ágil.</p>
+            <p>Martínez Seguros es una corredoría de seguros que trabaja con distintas compañías aseguradoras para ayudarte a encontrar la cobertura que necesitás, con cotización sin costo y respuesta ágil. Atendemos a clientes de todo el país.</p>
             <p>Nuestro trabajo es escucharte, explicarte las alternativas con claridad y acompañarte antes, durante y después de la contratación.</p>
           </div>
         </Reveal>

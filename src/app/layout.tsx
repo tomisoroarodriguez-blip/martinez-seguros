@@ -10,9 +10,9 @@ const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", displa
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: { default: "Martínez Seguros | Corredores de seguros en Montevideo", template: "%s | Martínez Seguros" },
+  title: { default: "Martínez Seguros | Corredores de seguros en todo Uruguay", template: "%s | Martínez Seguros" },
   description: siteConfig.description,
-  keywords: ["seguros en Montevideo", "corredores de seguros Uruguay", "cotizar seguro de auto Uruguay", "seguro de hogar Montevideo", "asesoramiento de seguros Uruguay"],
+  keywords: ["seguros en Montevideo", "corredores de seguros Uruguay", "cotizar seguro de auto Uruguay", "seguro de hogar Uruguay", "seguros en Montevideo", "asesoramiento de seguros Uruguay"],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -36,6 +36,7 @@ const jsonLd = {
   description: siteConfig.description,
   telephone: siteConfig.contact.phoneTel,
   email: siteConfig.contact.email,
+  areaServed: { "@type": "Country", name: "Uruguay" },
   address: { "@type": "PostalAddress", streetAddress: "Juan Paullier 1117", addressLocality: "Montevideo", addressCountry: "UY" },
   areaServed: "Uruguay",
   sameAs: [siteConfig.contact.instagram],

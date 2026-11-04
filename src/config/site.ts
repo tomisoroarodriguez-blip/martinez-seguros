@@ -9,7 +9,7 @@ export const siteConfig = {
   /** Hasta el lanzamiento el sitio no se indexa. Para habilitarlo: NEXT_PUBLIC_ALLOW_INDEXING=1 */
   allowIndexing: process.env.NEXT_PUBLIC_ALLOW_INDEXING === "1",
   description:
-    "Corredores de seguros en Montevideo, Uruguay. Asesoramiento personalizado en seguros de auto, hogar, vida, comercio y más. Pedí tu cotización sin costo.",
+    "Corredores de seguros en todo Uruguay. Asesoramiento personalizado en seguros de auto, hogar, vida, comercio y más. Pedí tu cotización sin costo.",
   gaId: process.env.NEXT_PUBLIC_GA_ID ?? "",
 
   contact: {
