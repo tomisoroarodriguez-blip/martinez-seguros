@@ -35,7 +35,7 @@ export function Header() {
   return (
     <header className={`fixed inset-x-0 top-0 z-40 transition-all ${scrolled || open ? "bg-navy-950/95 shadow-lg backdrop-blur" : "bg-transparent"}`}>
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <a href="#inicio" aria-label={`${siteConfig.name} — inicio`} className="text-white">
+        <a href="#inicio" className="text-white">
           <Logo tone="light" className="h-9 w-auto sm:h-10" />
         </a>
 

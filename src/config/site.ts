@@ -5,7 +5,9 @@
  */
 export const siteConfig = {
   name: "Martínez Seguros",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://martinez-seguros.vercel.app",
+  /** Hasta el lanzamiento el sitio no se indexa. Para habilitarlo: NEXT_PUBLIC_ALLOW_INDEXING=1 */
+  allowIndexing: process.env.NEXT_PUBLIC_ALLOW_INDEXING === "1",
   description:
     "Corredores de seguros en Montevideo, Uruguay. Asesoramiento personalizado en seguros de auto, hogar, vida, comercio y más. Pedí tu cotización sin costo.",
   gaId: process.env.NEXT_PUBLIC_GA_ID ?? "",

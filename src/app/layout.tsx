@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
   },
   twitter: { card: "summary_large_image" },
-  robots: { index: true, follow: true },
+  robots: { index: siteConfig.allowIndexing, follow: siteConfig.allowIndexing },
 };
 
 export const viewport: Viewport = { themeColor: "#183766", width: "device-width", initialScale: 1 };

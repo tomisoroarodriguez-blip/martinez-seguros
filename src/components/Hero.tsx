@@ -24,34 +24,26 @@ export function Hero({ photo }: { photo?: string }) {
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2">
         <div>
-          <motion.p
-            initial={reduce ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm text-white/85"
+          <p
+            className="rise mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm text-white/85"
           >
             <BadgeCheck size={16} className="text-accent-400" aria-hidden /> Corredores de seguros en Montevideo
-          </motion.p>
-          <motion.h1
-            initial={reduce ? false : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.08, duration: 0.6 }}
-            className="font-display text-5xl font-extrabold tracking-tight leading-[1.05] sm:text-6xl lg:text-7xl"
+          </p>
+          <h1
+            style={{ "--d": "0.08s" } as React.CSSProperties}
+            className="rise font-display text-5xl font-extrabold tracking-tight leading-[1.05] sm:text-6xl lg:text-7xl"
           >
             Protegemos lo que <span className="text-accent-400">más importa.</span>
-          </motion.h1>
-          <motion.p
-            initial={reduce ? false : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.16, duration: 0.6 }}
-            className="mt-6 max-w-xl text-lg leading-relaxed text-white/80"
+          </h1>
+          <p
+            style={{ "--d": "0.16s" } as React.CSSProperties}
+            className="rise mt-6 max-w-xl text-lg leading-relaxed text-white/80"
           >
             Tu tranquilidad, nuestra prioridad. Encontrá el seguro adecuado con asesoramiento personalizado.
-          </motion.p>
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.24, duration: 0.6 }}
-            className="mt-9 flex flex-col gap-3 sm:flex-row"
+          </p>
+          <div
+            style={{ "--d": "0.24s" } as React.CSSProperties}
+            className="rise mt-9 flex flex-col gap-3 sm:flex-row"
           >
             <button type="button" onClick={() => startQuote()} className="btn btn-primary text-base">
               Solicitar cotización
@@ -65,17 +57,15 @@ export function Hero({ photo }: { photo?: string }) {
             >
               <MessageCircle size={18} aria-hidden /> Hablar por WhatsApp
             </a>
-          </motion.div>
+          </div>
           <p className="mt-6 text-sm text-white/60">Cotización sin costo · Atención personalizada · Corredores de seguros de todas las compañías</p>
         </div>
 
         {/* Composición visual: tarjetas de protección en torno a un escudo */}
-        <motion.div
+        <div
           aria-hidden
-          initial={reduce ? false : { opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          className="relative mx-auto h-[22rem] w-full max-w-md sm:h-[26rem]"
+          style={{ "--d": "0.2s" } as React.CSSProperties}
+          className="rise relative mx-auto h-[22rem] w-full max-w-md sm:h-[26rem]"
         >
           {photo ? (
             <div className="absolute inset-4 overflow-hidden rounded-[2rem] shadow-2xl ring-1 ring-white/15">
@@ -108,7 +98,7 @@ export function Hero({ photo }: { photo?: string }) {
               <span className="text-sm font-semibold">{label}</span>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

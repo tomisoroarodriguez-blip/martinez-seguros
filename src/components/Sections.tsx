@@ -47,10 +47,10 @@ export function HowItWorks() {
     <section id="como-funciona" className="bg-mist py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading eyebrow="Cómo funciona" title="Tres pasos, sin complicaciones" />
-        <ol className="grid gap-8 md:grid-cols-3">
+        <div role="list" className="grid gap-8 md:grid-cols-3">
           {steps.map(({ Icon, title, text }, i) => (
-            <Reveal key={title} delay={i * 0.1}>
-              <li className="relative h-full rounded-3xl bg-white p-8 shadow-sm">
+            <Reveal key={title} delay={i * 0.1} role="listitem" className="h-full">
+              <div className="relative h-full rounded-3xl bg-white p-8 shadow-sm">
                 <span className="absolute -top-5 left-8 grid h-10 w-10 place-items-center rounded-full bg-navy-900 font-display text-lg font-semibold text-accent-400">{i + 1}</span>
                 <Icon className="mt-3 text-navy-700" size={34} aria-hidden />
                 <h3 className="mt-4 font-display text-xl font-semibold text-navy-900">
@@ -58,10 +58,10 @@ export function HowItWorks() {
                   {title}
                 </h3>
                 <p className="mt-2 text-slate-soft">{text}</p>
-              </li>
+              </div>
             </Reveal>
           ))}
-        </ol>
+        </div>
       </div>
     </section>
   );

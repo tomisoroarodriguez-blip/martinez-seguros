@@ -74,3 +74,7 @@ body {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* Entrada de la portada con CSS puro: el texto es visible sin esperar al JavaScript (mejor LCP). */
+@keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise 0.6s ease-out both; animation-delay: var(--d, 0s); }
