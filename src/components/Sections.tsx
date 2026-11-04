@@ -22,7 +22,7 @@ export function HowItWorks() {
         <SectionHeading eyebrow="Cómo te ayudamos" title="Tres pasos, sin complicaciones" intro="De la primera consulta a la póliza, con una persona que te acompaña." />
         <ol className="relative grid gap-6 md:grid-cols-3 md:gap-8">
           {/* línea que une los pasos (solo escritorio) */}
-          <span aria-hidden className="absolute left-[16%] right-[16%] top-[2.1rem] hidden border-t-2 border-dashed border-navy-900/15 md:block" />
+          <span aria-hidden className="draw-line absolute left-[16%] right-[16%] top-[2.1rem] hidden border-t-2 border-dashed border-navy-900/20 md:block" />
           {steps.map(({ Icon, title, text }, i) => (
             <li key={title}>
               <Reveal delay={i * 0.1} className="h-full">
@@ -73,7 +73,7 @@ export function Nosotros() {
             <li key={title} className={i === 4 ? "sm:col-span-2" : ""}>
               <Reveal delay={(i % 2) * 0.07} className="h-full">
                 <div className="h-full rounded-3xl bg-white p-6 shadow-sm shadow-navy-900/5 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-navy-900/10">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-accent-100 text-navy-800">
+                  <span className="icon-pop grid h-11 w-11 place-items-center rounded-xl bg-accent-100 text-navy-800">
                     <Icon size={22} aria-hidden />
                   </span>
                   <h3 className="mt-4 font-display text-lg font-bold text-navy-900">{title}</h3>

@@ -64,7 +64,8 @@ export function Hero({ photo }: { photo?: string }) {
         <div aria-hidden style={d(0.2)} className="rise relative mx-auto h-[22rem] w-full max-w-md sm:h-[27rem]">
           {photo ? (
             <div className="absolute inset-4 overflow-hidden rounded-[2rem] shadow-2xl shadow-black/40 ring-1 ring-white/15">
-              <Image src={photo} alt="" fill priority sizes="(min-width: 1024px) 28rem, 90vw" className="object-cover" />
+              <Image src={photo} alt="" fill priority sizes="(min-width: 1024px) 28rem, 90vw" className="kenburns object-cover" />
+              <div className="sheen absolute inset-0" />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-navy-900/20" />
               <Dots className="absolute bottom-5 right-5" size={8} />
             </div>
@@ -77,15 +78,17 @@ export function Hero({ photo }: { photo?: string }) {
             </>
           )}
           {[
-            { Icon: Car, label: "Tu vehículo", cls: "left-0 top-6", delay: 0.5 },
-            { Icon: Home, label: "Tu hogar", cls: "right-0 top-24", delay: 0.62 },
-            { Icon: Store, label: "Tu negocio", cls: "bottom-8 left-4", delay: 0.74 },
-          ].map(({ Icon, label, cls, delay }) => (
-            <div key={label} style={d(delay)} className={`rise absolute ${cls} flex items-center gap-3 rounded-2xl bg-white px-4 py-3 text-navy-900 shadow-xl shadow-black/20`}>
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-accent-100 text-navy-800">
-                <Icon size={20} />
-              </span>
-              <span className="text-sm font-semibold">{label}</span>
+            { Icon: Car, label: "Tu vehículo", cls: "left-0 top-6", delay: 0.5, fl: 0 },
+            { Icon: Home, label: "Tu hogar", cls: "right-0 top-24", delay: 0.62, fl: 1.4 },
+            { Icon: Store, label: "Tu negocio", cls: "bottom-8 left-4", delay: 0.74, fl: 2.8 },
+          ].map(({ Icon, label, cls, delay, fl }) => (
+            <div key={label} style={d(delay)} className={`rise absolute ${cls}`}>
+              <div style={{ animationDelay: `${fl}s` }} className="float-y flex items-center gap-3 rounded-2xl bg-white px-4 py-3 text-navy-900 shadow-xl shadow-black/20">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-accent-100 text-navy-800">
+                  <Icon size={20} />
+                </span>
+                <span className="text-sm font-semibold">{label}</span>
+              </div>
             </div>
           ))}
         </div>

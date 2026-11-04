@@ -36,7 +36,6 @@ const jsonLd = {
   description: siteConfig.description,
   telephone: siteConfig.contact.phoneTel,
   email: siteConfig.contact.email,
-  areaServed: { "@type": "Country", name: "Uruguay" },
   address: { "@type": "PostalAddress", streetAddress: "Juan Paullier 1117", addressLocality: "Montevideo", addressCountry: "UY" },
   areaServed: "Uruguay",
   sameAs: [siteConfig.contact.instagram],

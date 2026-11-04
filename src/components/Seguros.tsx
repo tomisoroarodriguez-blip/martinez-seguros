@@ -24,7 +24,7 @@ export function Seguros() {
                 <Reveal delay={(i % 3) * 0.07} className="flex w-full">
                   <article className="card-hover group relative flex w-full flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white p-6 shadow-sm shadow-navy-900/5 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-accent-500/60 hover:shadow-xl hover:shadow-navy-900/10 focus-within:border-accent-500/60">
                     <span aria-hidden className="bar-brand absolute inset-x-0 top-0 h-1" />
-                    <span className="mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-navy-900 text-accent-400 transition-colors duration-300 group-hover:bg-accent-500 group-hover:text-navy-950">
+                    <span className="icon-pop mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-navy-900 text-accent-400 transition-colors duration-300 group-hover:bg-accent-500 group-hover:text-navy-950">
                       <Icon size={26} aria-hidden />
                     </span>
                     <h3 className="font-display text-xl font-bold leading-snug text-navy-900">{t.label}</h3>
