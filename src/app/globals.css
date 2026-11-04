@@ -54,8 +54,8 @@ body {
 .btn-ghost:hover { background: rgb(255 255 255 / 0.1); }
 .btn-navy { background: var(--color-navy-900); color: #fff; }
 .btn-navy:hover { background: var(--color-navy-700); }
-.btn-wa { background: #1fa855; color: #fff; }
-.btn-wa:hover { background: #178a45; }
+.btn-wa { background: #15803d; color: #fff; }
+.btn-wa:hover { background: #116a32; }
 
 .field {
   width: 100%;
@@ -75,6 +75,60 @@ body {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 
-/* Entrada de la portada con CSS puro: el texto es visible sin esperar al JavaScript (mejor LCP). */
+/* ───────── Sistema de movimiento ─────────
+   Interacciones: 150–300 ms · Apariciones: 400–700 ms · solo transform y opacity.
+   Todo el contenido es visible por defecto; las animaciones son un añadido. */
+:root { --ease-out: cubic-bezier(0.22, 0.7, 0.2, 1); }
+
+.reveal { transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out); transition-delay: var(--d, 0s); }
+.reveal-hidden { opacity: 0; transform: translateY(20px); }
+
 @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
-.rise { animation: rise 0.6s ease-out both; animation-delay: var(--d, 0s); }
+.rise { animation: rise 0.65s var(--ease-out) backwards; animation-delay: var(--d, 0s); }
+
+/* Logo: los tres círculos entran en secuencia, luego la línea y el nombre */
+@keyframes dot-in { from { opacity: 0; transform: translateY(8px) scale(0.7); } to { opacity: 1; transform: none; } }
+@keyframes text-in { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: none; } }
+@keyframes line-in { from { opacity: 0; transform: scaleY(0); } to { opacity: 1; transform: none; } }
+.logo-dot, .logo-divider { transform-box: fill-box; transform-origin: center; }
+.logo-animated .logo-dot { animation: dot-in 0.6s var(--ease-out) backwards; }
+.logo-animated .logo-dot:nth-of-type(2) { animation-delay: 0.12s; }
+.logo-animated .logo-dot:nth-of-type(3) { animation-delay: 0.24s; }
+.logo-animated .logo-divider { animation: line-in 0.5s var(--ease-out) 0.36s backwards; }
+.logo-animated .logo-text { animation: text-in 0.6s var(--ease-out) 0.46s backwards; }
+.logo-animated .logo-text + .logo-text { animation-delay: 0.56s; }
+.logo-link .logo-dot { transition: transform 0.25s var(--ease-out); }
+.logo-link:hover .logo-dot { transform: translateY(-2px); }
+.logo-link:hover .logo-dot:nth-of-type(2) { transition-delay: 0.04s; }
+.logo-link:hover .logo-dot:nth-of-type(3) { transition-delay: 0.08s; }
+
+/* Fondo de portada: movimiento muy lento, una sola capa */
+@keyframes drift { 0%, 100% { transform: translate3d(0, 0, 0); } 50% { transform: translate3d(30px, 22px, 0); } }
+.drift { animation: drift 38s ease-in-out infinite; }
+.drift-rev { animation: drift 46s ease-in-out infinite reverse; }
+
+/* Menú móvil */
+@keyframes menu-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+.menu-in { animation: menu-in 0.22s var(--ease-out); }
+
+/* Botón de WhatsApp: un solo destello al aparecer */
+@keyframes ping-once { 0% { transform: scale(1); opacity: 0.55; } 100% { transform: scale(1.9); opacity: 0; } }
+.ping-once { animation: ping-once 1.4s ease-out 2.5s 2 backwards; }
+
+/* Tarjetas: barra con los colores de la marca al pasar o enfocar */
+.bar-brand { background: linear-gradient(90deg, #f2575b 0 33.3%, #999 33.3% 66.6%, #f8c36b 66.6%); transform: scaleX(0); transform-origin: left; transition: transform 0.3s var(--ease-out); }
+.card-hover:hover .bar-brand, .card-hover:focus-within .bar-brand { transform: scaleX(1); }
+
+/* Acordeón con altura animada */
+.acc-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.3s var(--ease-out); }
+.acc-panel[data-open="true"] { grid-template-rows: 1fr; }
+.acc-panel > div { overflow: hidden; }
+
+.btn-primary:focus-visible, .btn-wa:focus-visible, .btn-navy:focus-visible { outline-offset: 3px; }
+a, button { -webkit-tap-highlight-color: transparent; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-hidden { opacity: 1; transform: none; }
+  .drift, .drift-rev, .ping-once { animation: none; }
+  .rise, .logo-animated .logo-dot, .logo-animated .logo-text, .logo-animated .logo-divider, .menu-in { animation: none; }
+}

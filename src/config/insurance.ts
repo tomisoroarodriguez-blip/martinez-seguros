@@ -15,6 +15,8 @@ export type InsuranceType = {
   description: string;
   /** Mensaje de WhatsApp al consultar desde la tarjeta */
   waMessage: string;
+  /** Puntos breves que se muestran en la tarjeta (solo lo que ya figura en la descripción) */
+  points: string[];
 };
 
 /**
@@ -27,54 +29,63 @@ export const insuranceTypes: InsuranceType[] = [
     label: "Seguro de automóviles",
     description: "Alternativas de cobertura para tu vehículo. Cotización sin costo y en minutos.",
     waMessage: "Hola, quiero consultar por un seguro para mi vehículo.",
+    points: ["Alternativas de cobertura", "Cotización sin costo"],
   },
   {
     id: "moto",
     label: "Seguro de motos",
     description: "Protegé tu moto y a quienes se cruzan con ella. Te explicamos cada opción.",
     waMessage: "Hola, quiero consultar por un seguro para mi moto.",
+    points: ["Te explicamos cada opción", "Cotización sin costo"],
   },
   {
     id: "hogar",
     label: "Seguro de hogar",
     description: "Protección frente a hurto, incendio, tempestades, explosión y más. También podés consultar por tu mascota.",
     waMessage: "Hola, quiero recibir asesoramiento sobre seguros de hogar.",
+    points: ["Hurto e incendio", "Tempestades y explosión", "Consulta por tu mascota"],
   },
   {
     id: "vida",
     label: "Seguro de vida",
     description: "Respaldo para vos y tu familia, con opciones de protección y de ahorro. Te orientamos para elegir con claridad.",
     waMessage: "Hola, quiero recibir asesoramiento sobre seguros de vida.",
+    points: ["Opciones de protección", "Opciones de ahorro"],
   },
   {
     id: "empresa",
     label: "Seguro de comercio y empresas",
     description: "Coberturas para tu local, tu equipo y tu actividad, según el rubro.",
     waMessage: "Hola, quiero recibir asesoramiento sobre seguros para mi comercio o empresa.",
+    points: ["Local, equipo y actividad", "Según tu rubro"],
   },
   {
     id: "viaje",
     label: "Seguro de viaje",
     description: "Viajá con respaldo ante imprevistos médicos o de equipaje.",
     waMessage: "Hola, quiero consultar por un seguro de viaje.",
+    points: ["Imprevistos médicos", "Equipaje"],
   },
   {
     id: "alquiler",
     label: "Seguro de alquiler",
     description: "Garantía de alquiler: alternativas para alquilar con respaldo.",
     waMessage: "Hola, quiero consultar por un seguro de alquiler.",
+    points: ["Garantía de alquiler", "Alternativas para alquilar"],
   },
   {
     id: "trabajo",
     label: "Accidentes de trabajo",
     description: "Cobertura frente a accidentes laborales. Te explicamos qué opciones existen según tu actividad.",
     waMessage: "Hola, quiero consultar por un seguro de accidentes de trabajo.",
+    points: ["Accidentes laborales", "Opciones según tu actividad"],
   },
   {
     id: "otros",
     label: "Otros seguros",
     description: "¿Necesitás otra cobertura? Contanos y buscamos la alternativa adecuada.",
     waMessage: "Hola, quiero consultar por otro tipo de seguro.",
+    points: ["Contanos qué necesitás", "Buscamos la alternativa"],
   },
 ];
 

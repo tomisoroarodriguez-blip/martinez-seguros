@@ -1,10 +1,10 @@
-import { About, Contact } from "@/components/AboutContact";
+import { Contact } from "@/components/AboutContact";
 import { Cotizador } from "@/components/Cotizador";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Seguros } from "@/components/Seguros";
-import { Claims, Faq, HowItWorks, WhyUs } from "@/components/Sections";
+import { Claims, Faq, HowItWorks, Nosotros } from "@/components/Sections";
 import { faqs } from "@/config/insurance";
 
 const faqLd = {
@@ -22,12 +22,11 @@ export default function Home() {
       <main id="contenido">
         <Hero photo={heroPhoto} />
         <Seguros />
-        <Cotizador />
-        <WhyUs />
         <HowItWorks />
+        <Cotizador />
+        <Nosotros />
         <Claims />
         <Faq />
-        <About />
         <Contact />
       </main>
       <Footer />
@@ -35,4 +34,3 @@ export default function Home() {
     </>
   );
 }
-

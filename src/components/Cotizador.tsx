@@ -85,13 +85,18 @@ export function Cotizador() {
   const [values, setValues] = useState<Values>(empty);
   const [privacy, setPrivacy] = useState(false);
   const [touched, setTouched] = useState(false);
+  const [blurred, setBlurred] = useState<Record<string, boolean>>({});
+  const [opening, setOpening] = useState(false);
   const [sent, setSent] = useState<string | null>(null);
 
   // El seguro elegido en las tarjetas manda sobre el valor local.
   const tipo = selected || (values.tipo as InsuranceId | "");
   const merged = useMemo(() => ({ ...values, tipo }), [values, tipo]);
   const fields = tipo ? specificFields[tipo] ?? [] : [];
-  const errors = touched ? validate(merged, fields, privacy) : {};
+  const allErrors = validate(merged, fields, privacy);
+  // Se muestra el error de un campo al salir de él; tras enviar, todos.
+  const errors: Values = touched ? allErrors : Object.fromEntries(Object.entries(allErrors).filter(([k]) => blurred[k]));
+  const markBlur = (n: string) => setBlurred((p) => (p[n] ? p : { ...p, [n]: true }));
 
   const set = (name: string, value: string) => setValues((p) => ({ ...p, [name]: value }));
 
@@ -107,7 +112,12 @@ export function Cotizador() {
     const url = waLink(buildMessage(merged, fields));
     trackEvent("quote_submit", { seguro: tipo });
     window.open(url, "_blank", "noopener,noreferrer");
-    setSent(url);
+    // Estado intermedio honesto: solo abrimos WhatsApp; el envío lo hace la persona allí.
+    setOpening(true);
+    window.setTimeout(() => {
+      setOpening(false);
+      setSent(url);
+    }, 700);
   }
 
   function reset() {
@@ -115,6 +125,7 @@ export function Cotizador() {
     setSelected("");
     setPrivacy(false);
     setTouched(false);
+    setBlurred({});
     setSent(null);
   }
 
@@ -122,6 +133,7 @@ export function Cotizador() {
   const common = (n: string) => ({
     id: n,
     name: n,
+    onBlur: () => markBlur(n),
     "aria-invalid": err(n) ? true : undefined,
     "aria-describedby": err(n) ? `${n}-err` : undefined,
   });
@@ -256,6 +268,7 @@ export function Cotizador() {
                     type="checkbox"
                     checked={privacy}
                     onChange={(e) => setPrivacy(e.target.checked)}
+                    onBlur={() => markBlur("privacy")}
                     aria-invalid={err("privacy") ? true : undefined}
                     aria-describedby={err("privacy") ? "privacy-err" : undefined}
                     className="mt-0.5 h-5 w-5 shrink-0 accent-accent-500"
@@ -277,8 +290,14 @@ export function Cotizador() {
                 </p>
               )}
 
-              <button type="submit" className="btn btn-primary w-full text-base">
-                <Send size={18} aria-hidden /> Enviar consulta por WhatsApp
+              <button type="submit" disabled={opening} aria-busy={opening} className="btn btn-primary w-full text-base disabled:cursor-wait disabled:opacity-80">
+                {opening ? (
+                  "Abriendo WhatsApp…"
+                ) : (
+                  <>
+                    <Send size={18} aria-hidden /> Continuar en WhatsApp
+                  </>
+                )}
               </button>
               <p className="flex items-center justify-center gap-2 text-center text-xs text-slate-soft">
                 <Lock size={13} aria-hidden /> No pedimos documentos ni datos sensibles. Esta solicitud no es una cotización definitiva.
